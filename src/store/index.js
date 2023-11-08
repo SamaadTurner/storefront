@@ -1,6 +1,10 @@
-import {createStore, combineReducers} from 'redux';
- import productsReducer from './products.js';
+import { createStore, combineReducers } from 'redux';
+import productReducer from './products';
+import categoryReducer from './categories';
 
- let reducer = combineReducers({products: productsReducer});
+const reducer = combineReducers({
+  products: productReducer,
+  categories: categoryReducer
+});
 
- export default createStore(reducer);
+export default createStore(reducer);
