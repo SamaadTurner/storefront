@@ -1,38 +1,16 @@
 import React from 'react';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import { selectCategory } from '../../store/categories/slice';
 
 function Categories() {
   const dispatch = useDispatch();
   const handleClick  = (category) => {
-    let action = {
-      type: 'CHANGE_ACTIVE_CATEGORY',
-      payload: category,
-    }
-    dispatch(action);
-    console.log({action});
-
+    dispatch(selectCategory(category));
+    console.log({category});
   }
-    const categories = [ 
-      {
-        name: 'ALL',
-        displayName: 'All',
-      },
-      {
-      name: 'SHIRTS', 
-      displayName: 'Shirts', 
-      description: 'Cool Shirts!'
-    }, {
-      name: 'PANTS', 
-      displayName: 'Pants', 
-      description: 'Cool Pants!'
-    }, {
-      name: 'SHOES', 
-      displayName: 'Shoes', 
-      description: 'Cool Shoes!'
-    }];
-
+  const categories = useSelector(state => state.categories.list);  
 
   return (
     <div className="categories">
