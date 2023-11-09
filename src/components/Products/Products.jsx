@@ -4,13 +4,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import React from 'react';
 
 function Products() {
-const state = useSelector(state => state.products);  
+const displayList = useSelector(state => state.products.displayList);  
 
     return (
         <div className="products">
             <h2>Products</h2>
             <ul>
-                {state.products.map((product, idx) => (
+                {displayList.map((product, idx) => (
                     <div key={idx}>
                         <h3>{product.name}</h3>
                         <p>{product.description}</p>
