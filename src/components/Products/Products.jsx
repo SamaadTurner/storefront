@@ -1,25 +1,44 @@
-'use strict';
-import { useSelector, useDispatch } from 'react-redux';
-
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 
 function Products() {
-const displayList = useSelector(state => state.products.displayList);  
+  const dispatch = useDispatch();
+  const displayList = useSelector((state) => state.products.displayList);
 
-    return (
-        <div className="products">
-            <h2>Products</h2>
-            <ul>
-                {displayList.map((product, idx) => (
-                    <div key={idx}>
-                        <h3>{product.name}</h3>
-                        <p>{product.description}</p>
-                        <p>Price: ${product.price}</p>
-                        <p>Inventory: {product.inventory}</p>
-                    </div>
-                ))}
-            </ul>
-        </div>
-    );
+  const addToCart = (product) => {
+    dispatch({ type: 'ADD_TO_CART', payload: product });
+  };
+
+  return (
+    <div className="products">
+      <h2>Products</h2>
+      {displayList.map((product, idx) => (
+        <Card key={idx} style={{ marginBottom: '16px' }}>
+          <CardContent>
+            <Typography variant="h5" component="div">
+              {product.name}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {product.description}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              Price: ${product.price}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              Inventory: {product.inventory}
+            </Typography>
+            <Button onClick={() => addToCart(product)} variant="contained" color="primary">
+              Add to Cart
+            </Button>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
+  );
 }
+
 export default Products;

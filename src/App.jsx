@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Categories from './components/Categories/Categories';
+import SimpleCart from './components/SimpleCart/SimpleCart';
 import {Provider} from 'react-redux';
 import Products from './components/Products/Products'
 import store from './store';
@@ -15,6 +16,7 @@ function App() {
       <Header storeName={storeName}/>
       <Categories />
       <Products />
+      <SimpleCart />
       <Footer />
     </Provider>
   )
