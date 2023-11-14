@@ -4,13 +4,14 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import {addToCart} from '../../store/cart/slice.js';
 
 function Products() {
   const dispatch = useDispatch();
   const displayList = useSelector((state) => state.products.displayList);
 
-  const addToCart = (product) => {
-    dispatch({ type: 'ADD_TO_CART', payload: product });
+  const addProductToCart = (product) => {
+    dispatch(addToCart(product));
   };
 
   return (
@@ -31,7 +32,7 @@ function Products() {
             <Typography variant="body2" color="text.secondary">
               Inventory: {product.inventory}
             </Typography>
-            <Button onClick={() => addToCart(product)} variant="contained" color="primary">
+            <Button onClick={() => addProductToCart(product)} variant="contained" color="primary">
               Add to Cart
             </Button>
           </CardContent>
