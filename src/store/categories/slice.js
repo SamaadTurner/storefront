@@ -27,7 +27,6 @@ const categories = createSlice({
   },
   reducers: {
     selectCategory: (state, action) => {
-      console.log("Category", action);
       state.activeCategory = action.payload;
     }
   }

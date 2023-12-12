@@ -6,7 +6,8 @@ const cart = createSlice({
 
     reducers: {
         addToCart: (state, action) => {
-            state.cart = [...state.cart, action.payload]
+            let cartItem = {...action.payload, inventory:1}
+            state.cart = [...state.cart, cartItem]
         },
         removeFromCart: (state, action) => {
             state.cart = state.cart.filter(item => action.payload.name !== item.name)
