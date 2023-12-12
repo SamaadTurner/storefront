@@ -14,7 +14,7 @@ function SimpleCart() {
     <div className="simpleCart">
       <h2>Cart (click on item to delete from Cart)</h2>
       {cart.map((item, idx) => (
-        <button onClick={() => removeItem(item)} key={idx}>{item.name}</button>
+        <button onClick={() => removeItem(item)} key={idx}>{item.name}: {item.inventory}</button>
       ))}
     </div>
   );
