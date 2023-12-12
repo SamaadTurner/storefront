@@ -15,6 +15,7 @@ function Products() {
   const addProductToCart = (product) => {
     dispatch(addToCart(product));
     dispatch(updateDisplayList(activeCategory));
+    
   };
 
   return (

@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import {removeFromCart} from '../../store/cart/slice.js';
+import { updateDisplayList } from '../../store/products/slice.js';
 
 function SimpleCart() {
   const cart = useSelector(state => state.cart.cart);
@@ -8,6 +9,7 @@ function SimpleCart() {
 
   const removeItem = (item) => {
     dispatch(removeFromCart(item));
+    dispatch(updateDisplayList(item.category));
   }
 
   return (
