@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { selectCategory } from '../categories/slice';
 import { addToCart } from '../cart/slice';
-
+import { removeFromCart } from '../cart/slice';
 const products = createSlice({
   name: 'products',
   initialState: {
@@ -47,8 +47,18 @@ const products = createSlice({
         }
         return product;
       })
+
       state.list = newList;
     }) 
+    builder.addCase(removeFromCart, (state, action) => {
+      const removeList = state.list.map((product) => {
+        if(product.name === action.payload.name){
+          return {...product, inventory: product.inventory + 1}
+        }
+        return product;
+      })
+      state.list = removeList;
+    })
   },
 });
 
