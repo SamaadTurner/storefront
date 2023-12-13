@@ -5,6 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import {addToCart} from '../../store/cart/slice.js';
+import { removeFromCart } from '../../store/cart/slice.js';
 import { updateDisplayList } from '../../store/products/slice.js';
 
 function Products() {
@@ -15,7 +16,7 @@ function Products() {
   const addProductToCart = (product) => {
     dispatch(addToCart(product));
     dispatch(updateDisplayList(activeCategory));
-    
+  
   };
 
   return (
