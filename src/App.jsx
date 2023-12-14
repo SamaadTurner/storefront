@@ -5,6 +5,7 @@ import Categories from './components/Categories/Categories';
 import SimpleCart from './components/SimpleCart/SimpleCart';
 import {Provider} from 'react-redux';
 import Products from './components/Products/Products'
+import CustomizedSnackbars from './components/Toast';
 import store from './store';
 import './App.css'
 
@@ -14,6 +15,7 @@ function App() {
   
     <Provider store ={store}>
       <Header storeName={storeName}/>
+      <CustomizedSnackbars />
       <Categories />
       <Products />
       <SimpleCart />
