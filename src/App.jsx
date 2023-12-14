@@ -18,7 +18,6 @@ function App() {
       <CustomizedSnackbars />
       <Categories />
       <Products />
-      <SimpleCart />
       <Footer />
     </Provider>
   )
