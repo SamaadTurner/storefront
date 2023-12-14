@@ -3,6 +3,9 @@ import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
 import MuiAlert from '@mui/material/Alert';
 import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
+import SimpleCart from './SimpleCart/SimpleCart';
+import Products from './Products/Products';
+
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -36,10 +39,8 @@ export default function CustomizedSnackbars() {
 
   const drawerContent = (
     <div sx={{ width: 250, padding: 2 }}>
-      <p>This is a cart item tha*****************</p>
-      <p>This is a cart item tha*****************</p>
-      <p>This is a cart item tha*****************</p>
-      <p>This is a cart item tha*****************</p>
+        <SimpleCart />
+        <Products />
       <Button onClick={handleClose}>Close</Button>
     </div>
   );
