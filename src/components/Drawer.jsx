@@ -40,7 +40,6 @@ export default function CustomizedSnackbars() {
   const drawerContent = (
     <div sx={{ width: 250, padding: 2 }}>
         <SimpleCart />
-        <Products />
       <Button onClick={handleClose}>Close</Button>
     </div>
   );
